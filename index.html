@@ -31,17 +31,15 @@
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: #38bdf8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 48px;
-            font-weight: bold;
-            color: #0f172a;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #38bdf8;
+    margin: 0 auto 20px;
+    display: block;
+}
+
         }
 
         h1 {
@@ -131,7 +129,8 @@
 
     <div class="container">
         <header>
-            <div class="profile-img">P</div>
+            <img src="foto.jpg" alt="Foto Profil" class="profile-img">
+
             <h1>ANANDA RIZKY SALAFI</h1>
             <p class="tagline">Developer / Designer / Programmer</p>
         </header>
@@ -177,3 +176,6 @@
 </body>
 </html>
 
+git add index.html
+git commit -m "Update isi portofolio"
+git push
