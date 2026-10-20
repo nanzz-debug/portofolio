@@ -1,3 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananda Rizky Salafi - Computer Engineer & Hardware Specialist</title>
+    
+    <!-- Meta Tag SEO untuk Google Search -->
+    <meta name="description" content="Portofolio resmi Ananda Rizky Salafi. Spesialis Computer Engineering, Hardware Troubleshooting, Perakitan PC, dan Service Smartphone.">
+    <meta name="keywords" content="Ananda Rizky Salafi, Computer Engineer, Service HP, Hardware Specialist, PC Building, Termux, Portofolio">
+    <meta name="author" content="Ananda Rizky Salafi">
+
+    <style>
+        :root {
+            --bg-main: #0f172a;        /* Abu-abu Sangat Gelap (Dark Slate) */
+            --bg-card: #1e293b;        /* Abu-abu Medium (Slate Blue) */
+            --bg-card-hover: #334155;  /* Abu-abu Terang untuk Hover */
+            --accent-blue: #2563eb;    /* Biru Developer Utama */
+            --accent-cyan: #38bdf8;    /* Biru Muda / Cyan Highlight */
+            --text-primary: #ffffff;   /* Putih Bersih */
+            --text-secondary: #94a3b8; /* Abu-abu Teks Penjelas */
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fira Code', 'Consolas', 'Segoe UI', monospace, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: var(--bg-card);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+        }
+
+        /* HEADER & PROFIL */
+        header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        h1 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            color: var(--accent-cyan);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* SEKSI & JUDUL */
+        section {
+            margin-top: 35px;
+        }
+
+        h2 {
+            color: var(--accent-cyan);
+            font-size: 1.3rem;
+            border-bottom: 2px solid var(--accent-blue);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 18px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* GRID KEAHLIAN DEVELOPER & HARDWARE */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-main);
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-blue);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            background-color: #162032;
+        }
+
+        .skill-card h3 {
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: #1e293b;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-blue);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* PROYEK & LAYANAN */
+        .project-item {
+            background-color: var(--bg-main);
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-item h3 {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 45px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER PROFIL -->
+        <header>
+            <img src="foto.jpg" alt="Foto Profil Ananda Rizky Salafi" class="profile-img">
+            <h1>ANANDA RIZKY SALAFI</h1>
+            <p class="tagline">Computer Engineer / Hardware & Smartphone Specialist / CLI Developer</p>
+        </header>
+
+        <!-- TENTANG SAYA -->
+        <section>
+            <h2>Tentang Saya</h2>
+            <p>Saya adalah seorang penggiat dan praktisi di bidang <strong>Computer Engineering</strong>, <strong>Hardware Troubleshooting</strong>, serta <strong>Servis Smartphone/HP</strong>. Berpengalaman dalam perakitan PC, diagnosa kerusakan komponen fisik komputer & HP, penggantian sparepart, perbaikan software/firmware, hingga pengelolaan sistem melalui lingkungan Linux/Termux CLI.</p>
+        </section>
+
+        <!-- KEAHLIAN UTAMA -->
+        <section>
+            <h2>Keahlian Teknik & Service</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Smartphone Repair (Service HP)</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Screen And Battery Replacement</span>
+                        <span class="skill-tag">Hardware Troubleshooting HP</span>
+                        <span class="skill-tag">Flashing / Install OS</span>
+                        <span class="skill-tag">Bypass / Unlock Bootloader</span>
+                        <span class="skill-tag">Micro-Soldering</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Hardware & PC Assembly</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PC Building & Custom Rig</span>
+                        <span class="skill-tag">Hardware Diagnostics</span>
+                        <span class="skill-tag">Component Repair</span>
+                        <span class="skill-tag">Thermal Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Firmware & System OS</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">BIOS / Stock ROM Flashing</span>
+                        <span class="skill-tag">Linux / Bash Scripting</span>
+                        <span class="skill-tag">Termux Architecture</span>
+                        <span class="skill-tag">System Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Developer & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Arduino / IoT</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Git / GitHub</span>
+                        <span class="skill-tag">HTML5 / CSS3</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAYANAN & PENGALAMAN -->
+        <section>
+            <h2>Layanan & Pengalaman Service</h2>
+            <div class="project-item">
+                <h3>Perbaikan & Maintenance Smartphone (HP)</h3>
+                <p>Melayani diagnosa kerusakan hardware dan software HP, penggantian modul layar/LCD, baterai, konektor charger, pemulihan sistem mentok logo (bootloop), serta flashing firmware/ROM.</p>
+            </div>
+            <div class="project-item">
+                <h3>Custom PC Assembly & Performance Tuning</h3>
+                <p>Merakit dan mengoptimalkan PC desktop sesuai kebutuhan spesifikasi, melakukan manajemen kabel, serta stress testing komponen hardware.</p>
+            </div>
             <div class="project-item">
                 <h3>Hardware Troubleshooting & Electronics</h3>
                 <p>Mendiagnosa kerusakan sirkuit, perbaikan komponen perangkat keras, perbaikan firmware corrupt, dan perawatan berkala perangkat elektronik.</p>
