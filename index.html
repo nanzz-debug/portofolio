@@ -66,8 +66,8 @@
         /* TOMBOL TEMA JAVASCRIPT */
         .theme-toggle {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 10px;
+            right: 10px;
             background: var(--bg-main);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
@@ -332,66 +332,5 @@
 </body>
 </html>
 
-        /* --- TAMBAHAN EFEK ANIMASI KLIK --- */
-        /* Efek tombol membal/membalut saat diklik */
-        .skill-card, .project-item, .profile-img, .theme-toggle {
-            cursor: pointer;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
 
-        .skill-card:active, .project-item:active, .theme-toggle:active {
-            transform: scale(0.96) !important;
-            transition: transform 0.1s ease !important;
-        }
-
-        .profile-img:active {
-            transform: scale(0.92) rotate(3deg) !important;
-            transition: transform 0.15s ease !important;
-        }
-
-        /* Efek Gelombang (Ripple) Saat Diklik */
-        .click-ripple {
-            position: absolute;
-            background: rgba(56, 189, 248, 0.4);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-animation 0.5s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-
-
-        // --- TAMBAHAN SCRIPT ANIMASI GELOMBANG KLIK (RIPPLE EFFECT) ---
-        const clickableElements = document.querySelectorAll('.skill-card, .project-item, .theme-toggle');
-
-        clickableElements.forEach(element => {
-            element.style.position = 'relative';
-            element.style.overflow = 'hidden';
-
-            element.addEventListener('click', function (e) {
-                const circle = document.createElement('span');
-                const diameter = Math.max(this.clientWidth, this.clientHeight);
-                const radius = diameter / 2;
-
-                const rect = this.getBoundingClientRect();
-                circle.style.width = circle.style.height = `${diameter}px`;
-                circle.style.left = `${e.clientX - rect.left - radius}px`;
-                circle.style.top = `${e.clientY - rect.top - radius}px`;
-                circle.classList.add('click-ripple');
-
-                const ripple = this.getElementsByClassName('click-ripple')[0];
-                if (ripple) {
-                    ripple.remove();
-                }
-
-                this.appendChild(circle);
-            });
-        });
+            
