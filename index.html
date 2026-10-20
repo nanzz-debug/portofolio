@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Saya</title>
+    <title>Portofolio - Ananda Rizky Salafi</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        } 
+        }
 
         body {
             background-color: #0f172a;
@@ -22,160 +22,201 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         header {
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid #334155;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #334155;
         }
 
         .profile-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #38bdf8;
-    margin: 0 auto 20px;
-    display: block;
-}
-
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #38bdf8;
+            margin: 0 auto 20px;
+            display: block;
         }
 
         h1 {
-            font-size: 2.2rem;
             color: #38bdf8;
+            font-size: 1.8rem;
             margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
         .tagline {
             color: #94a3b8;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         section {
-            margin: 30px 0;
+            margin-top: 30px;
         }
 
         h2 {
             color: #38bdf8;
+            font-size: 1.3rem;
             border-bottom: 2px solid #38bdf8;
             display: inline-block;
-            margin-bottom: 15px;
             padding-bottom: 5px;
+            margin-bottom: 15px;
         }
 
         p {
             color: #cbd5e1;
+            font-size: 0.95rem;
         }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
         }
 
         .skill-card {
-            background-color: #1e293b;
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid #334155;
-            font-size: 0.9rem;
-            color: #38bdf8;
+            background-color: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #38bdf8;
         }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .project-card {
-            background-color: #1e293b;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #334155;
-            transition: transform 0.2s;
-        }
-
-        .project-card h3 {
+        .skill-card h3 {
             color: #f8fafc;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 8px;
         }
 
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 16px;
-            background-color: #38bdf8;
-            color: #0f172a;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            background-color: #334155;
+            color: #38bdf8;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-item {
+            background-color: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .project-item h3 {
+            color: #f8fafc;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 20px 0;
-            color: #64748b;
+            margin-top: 40px;
+            padding-top: 20px;
             border-top: 1px solid #334155;
+            color: #64748b;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- HEADER PROFIL -->
         <header>
             <img src="foto.jpg" alt="Foto Profil" class="profile-img">
-
             <h1>ANANDA RIZKY SALAFI</h1>
-            <p class="tagline">Developer / Designer / Programmer</p>
+            <p class="tagline">Computer Engineer / Hardware Specialist / Embedded Systems</p>
         </header>
 
-        <section id="about">
+        <!-- TENTANG SAYA -->
+        <section>
             <h2>Tentang Saya</h2>
-            <p>Halo! Saya adalah seorang pengembang web yang passionate dalam membangun aplikasi web modern, responsif, dan mudah digunakan. Saya biasa membuat dan menguji project langsung dari Termux.</p>
+            <p>Saya adalah seorang penggiat dan praktisi di bidang <strong>Computer Engineering</strong> dan <strong>Hardware Troubleshooting</strong>. Berpengalaman dalam perakitan sistem komputer, perbaikan & diagnosa komponen fisik, serta pemrograman sistem tertanam (embedded systems). Terbiasa melakukan pengujian dan manajemen sistem langsung melalui perintah CLI/Termux.</p>
         </section>
 
-        <section id="skills">
-            <h2>Keahlian</h2>
-            <div class="skills">
-                <div class="skill-card">HTML5</div>
-                <div class="skill-card">CSS3</div>
-                <div class="skill-card">JavaScript</div>
-                <div class="skill-card">Python</div>
-                <div class="skill-card">Termux / Bash</div>
-                <div class="skill-card">Git</div>
+        <!-- KEAHLIAN UTAMA -->
+        <section>
+            <h2>Keahlian Teknik & Hardware</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Hardware & Assembly</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PC Building</span>
+                        <span class="skill-tag">Hardware Diagnostics</span>
+                        <span class="skill-tag">Component Repair</span>
+                        <span class="skill-tag">Thermal Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Embedded & Electronics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Arduino / IoT</span>
+                        <span class="skill-tag">Raspberry Pi</span>
+                        <span class="skill-tag">Microcontrollers</span>
+                        <span class="skill-tag">Soldering & Circuitry</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Firmware & System OS</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">BIOS Flashing</span>
+                        <span class="skill-tag">Linux / Bash</span>
+                        <span class="skill-tag">Termux Architecture</span>
+                        <span class="skill-tag">System Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Programming & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C / C++ (Basic)</span>
+                        <span class="skill-tag">Git / GitHub</span>
+                        <span class="skill-tag">HTML / CSS</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Proyek Saya</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Aplikasi Web Portofolio</h3>
-                    <p>Web portofolio pribadi yang dibuat dan dijalankan langsung dari Termux Android.</p>
-                    <a href="#" class="btn">Lihat Detail</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Lain</h3>
-                    <p>Deskripsi singkat mengenai proyek kedua yang pernah Anda kerjakan.</p>
-                    <a href="#" class="btn">Lihat Detail</a>
-                </div>
+        <!-- PENGALAMAN / PROYEK HARDWARE -->
+        <section>
+            <h2>Pengalaman & Proyek Hardware</h2>
+            <div class="project-item">
+                <h3>Custom PC Assembly & Performance Tuning</h3>
+                <p>Merakit dan mengoptimalkan PC desktop sesuai kebutuhan spesifikasi, melakukan manajemen kabel, serta stress testing komponen hardware.</p>
+            </div>
+            <div class="project-item">
+                <h3>Hardware Troubleshooting & Maintenance</h3>
+                <p>Mendiagnosa kerusakan sirkuit, penggantian komponen mati, flashing BIOS corrupt, dan perawatan berkala perangkat komputer.</p>
+            </div>
+            <div class="project-item">
+                <h3>IoT & Microcontroller Project</h3>
+                <p>Mengembangkan rangkaian sensor terintegrasi dengan modul mikrokontroler untuk sistem otomatisasi sederhana.</p>
             </div>
         </section>
 
+        <!-- FOOTER -->
         <footer>
-            <p>&copy; 2026 ANANDA RIZKY SALAFI. Dibuat dengan Termux.</p>
+            <p>&copy; 2026 Ananda Rizky Salafi. Hosted via GitHub Pages & Termux.</p>
         </footer>
     </div>
 
 </body>
 </html>
-
-git add index.html
-git commit -m "Update isi portofolio"
-git push
