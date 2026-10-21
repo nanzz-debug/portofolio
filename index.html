@@ -298,6 +298,67 @@
             font-weight: 500;
         }
 
+        /* --- FORM PEMESANAN SERVICE --- */
+        .order-form {
+            background-color: var(--bg-main);
+            padding: 22px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            margin-top: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #25d366;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #1eb857;
+        }
+
         /* --- SOSIAL MEDIA & KONTAK GRID --- */
         .contact-grid {
             display: grid;
@@ -336,6 +397,63 @@
         .contact-info p {
             font-size: 0.8rem;
             color: var(--accent-cyan);
+        }
+
+        /* --- FAQ SECTION ACCORDION --- */
+        .faq-item {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 16px;
+            text-align: left;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-cyan);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: var(--bg-card);
+            padding: 0 16px;
+        }
+
+        .faq-answer p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 14px 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
 
         /* --- TOMBOL WA MELAYANG --- */
@@ -397,7 +515,7 @@
             <div class="dropdown-menu" id="dropdownMenu">
                 <button class="menu-btn active" onclick="selectTab('profileTab', this)">👤 Profil Saya</button>
                 <button class="menu-btn" onclick="selectTab('skillsTab', this)">🛠️ Keahlian & Layanan</button>
-                <button class="menu-btn" onclick="selectTab('contactTab', this)">🌐 Kontak & Sosmed</button>
+                <button class="menu-btn" onclick="selectTab('contactTab', this)">🌐 Kontak & Order</button>
             </div>
         </div>
 
@@ -498,19 +616,98 @@
                     <p>Mendiagnosa kerusakan sirkuit, perbaikan komponen perangkat keras, perbaikan firmware corrupt, dan perawatan berkala perangkat elektronik.</p>
                 </div>
             </section>
+
+            <!-- SECTION FAQ / PERTANYAAN UMUM -->
+            <section>
+                <h2>Pertanyaan Umum (FAQ)</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>⏱️ Berapa lama estimasi pengerjaan service HP / LCD?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Untuk pengerjaan ganti LCD atau baterai umumnya membutuhkan waktu 1-3 jam (bisa ditunggu tergantung ketersediaan stok sparepart). Untuk kerusakan mesin/solder, butuh waktu 1-3 hari kerja untuk diagnosa mendalam.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>💻 Bisakah konsultasi rakit PC sesuai budget?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sangat bisa! Saya siap membantu merekomendasikan racikan komponen PC terbaik (Gaming, Editing, atau Kantor) yang paling optimal sesuai budget yang Anda miliki secara gratis.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>🛡️ Apakah ada garansi untuk perbaikan hardware?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ya, setiap pengerjaan penggantian sparepart asli (LCD, baterai, komponen PC) mendapatkan garansi personal service sesuai kesepakatan bersama demi kenyamanan Anda.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>📲 Bagaimana cara melakukan reservasi / tanya-tanya?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Anda bisa langsung mengisi Form Pemesanan Jasa di tab Kontak atau menekan tombol WhatsApp di pojok kanan bawah.</p>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- BAGIAN 3: KONTAK & MEDIA SOSIAL -->
+        <!-- BAGIAN 3: KONTAK & FORM PEMESANAN -->
         <div id="contactTab" class="tab-content">
             <section>
-                <h2>Hubungi & Ikuti Saya</h2>
-                <p>Silakan hubungi atau ikuti saya melalui platform sosial media berikut:</p>
-                
+                <h2>Form Pemesanan & Konsultasi Jasa</h2>
+                <p>Isi form berikut untuk langsung mengirim detail kendala HP/PC Anda ke WhatsApp saya secara otomatis:</p>
+
+                <form class="order-form" onsubmit="sendToWhatsApp(event)">
+                    <div class="form-group">
+                        <label for="clientName">Nama Lengkap:</label>
+                        <input type="text" id="clientName" placeholder="Masukkan nama Anda..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType">Jenis Jasa yang Dibutuhkan:</label>
+                        <select id="serviceType" required>
+                            <option value="Service Smartphone / HP">Service Smartphone / HP (LCD, Baterai, Flashing, dll)</option>
+                            <option value="Perakitan / Custom PC">Perakitan / Custom PC Desktop</option>
+                            <option value="Hardware Troubleshooting">Hardware Troubleshooting / Perbaikan Komponen</option>
+                            <option value="Konsultasi Spesifikasi">Konsultasi / Tanya-tanya</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deviceModel">Tipe Perangkat / Budget PC:</label>
+                        <input type="text" id="deviceModel" placeholder="Contoh: Redmi Note 10 / Budget PC 5 Juta" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueDetail">Detail Keluhan / Kebutuhan:</label>
+                        <textarea id="issueDetail" rows="3" placeholder="Jelaskan kendala perangkat Anda..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        📲 Kirim Pesan via WhatsApp
+                    </button>
+                </form>
+            </section>
+
+            <section>
+                <h2>Media Sosial & Alamat</h2>
                 <div class="contact-grid">
                     <a href="https://wa.me/6285859120286?text=Halo%20Ananda,%20saya%20ingin%20tanya%20layanan%20service/perakitan" target="_blank" class="contact-card">
                         <span class="contact-icon">💬</span>
                         <div class="contact-info">
-                            <h3>WhatsApp</h3>
+                            <h3>WhatsApp Direct</h3>
                             <p>+62 858-5912-0286</p>
                         </div>
                     </a>
@@ -592,6 +789,32 @@
                 dropdownMenu.classList.remove('active');
             }
         });
+
+        // AKORDION FAQ
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // FUNGSI KIRIM FORM KE WHATSAPP
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('serviceType').value;
+            const model = document.getElementById('deviceModel').value;
+            const detail = document.getElementById('issueDetail').value;
+
+            const text = `Halo Ananda, saya ingin order/konsultasi jasa:%0A%0A` +
+                         `*Nama:* ${encodeURIComponent(name)}%0A` +
+                         `*Layanan:* ${encodeURIComponent(service)}%0A` +
+                         `*Perangkat/Budget:* ${encodeURIComponent(model)}%0A` +
+                         `*Keluhan/Kebutuhan:* ${encodeURIComponent(detail)}`;
+
+            window.open(`https://wa.me/6285859120286?text=${text}`, '_blank');
+        }
 
         // ANIMASI TYPING
         const texts = [
