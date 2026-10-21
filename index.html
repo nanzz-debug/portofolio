@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ananda Rizky Salafi - Computer Engineer & Hardware Specialist</title>
     
-    <!-- Meta Tag SEO untuk Google Search -->
+    <!-- Meta Tag SEO -->
     <meta name="description" content="Portofolio resmi Ananda Rizky Salafi. Spesialis Computer Engineering, Hardware Troubleshooting, Perakitan PC, dan Service Smartphone.">
     <meta name="keywords" content="Ananda Rizky Salafi, Computer Engineer, Service HP, Hardware Specialist, PC Building, Termux, Portofolio">
     <meta name="author" content="Ananda Rizky Salafi">
@@ -26,7 +26,6 @@
             --border-color: #334155;
         }
 
-        /* Mode Terang (Light Mode) disiapkan lewat JavaScript */
         body.light-mode {
             --bg-main: #f8fafc;
             --bg-card: #ffffff;
@@ -63,19 +62,19 @@
             position: relative;
         }
 
-        /* TOMBOL TEMA JAVASCRIPT */
         .theme-toggle {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
             background: var(--bg-main);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
-            padding: 8px 14px;
+            padding: 6px 12px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
+            z-index: 10;
         }
 
         header {
@@ -100,7 +99,6 @@
             margin-bottom: 8px;
         }
 
-        /* EFEK MENGETIK JAVASCRIPT */
         .typing-container {
             min-height: 28px;
         }
@@ -189,6 +187,56 @@
             margin-bottom: 6px;
         }
 
+        /* --- GALERI FOTO --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .gallery-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .gallery-caption {
+            padding: 10px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* --- TOMBOL WA MELAYANG --- */
+        .wa-float {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #ffffff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
         footer {
             text-align: center;
             margin-top: 45px;
@@ -202,7 +250,6 @@
 <body>
 
     <div class="container">
-        <!-- Tombol Ganti Tema Mode Terang/Gelap -->
         <button class="theme-toggle" id="themeBtn">🌙 Mode Terang</button>
 
         <header>
@@ -224,11 +271,11 @@
                 <div class="skill-card">
                     <h3>Smartphone Repair (Service HP)</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Screen And Battery Replacement</span>
-                        <span class="skill-tag">Hardware Troubleshooting HP</span>
-                        <span class="skill-tag">Flashing / Install OS</span>
-                        <span class="skill-tag">Bypass / Unlock Bootloader</span>
-                        <span class="skill-tag">Micro-Soldering</span>
+                        <span class="skill-tag">LCD & Battery Replacement</span>
+                        <span class="skill-tag">Hardware Troubleshooting</span>
+                        <span class="skill-tag">OS Flashing & Installation</span>
+                        <span class="skill-tag">Bypass & Bootloader Unlock</span>
+                        <span class="skill-tag">Micro Soldering</span>
                     </div>
                 </div>
 
@@ -280,14 +327,35 @@
             </div>
         </section>
 
+        <section>
+            <h2>Galeri Hasil Kerja</h2>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="galeri1.jpg" alt="Servis HP" class="gallery-img" onerror="this.src='https://via.placeholder.com/300x200?text=Servis+HP'">
+                    <div class="gallery-caption">Penggantian LCD & Baterai HP</div>
+                </div>
+                <div class="gallery-card">
+                    <img src="galeri2.jpg" alt="Rakit PC" class="gallery-img" onerror="this.src='https://via.placeholder.com/300x200?text=Rakit+PC'">
+                    <div class="gallery-caption">Perakitan Custom PC Desktop</div>
+                </div>
+                <div class="gallery-card">
+                    <img src="galeri3.jpg" alt="Troubleshooting" class="gallery-img" onerror="this.src='https://via.placeholder.com/300x200?text=Solder+Hardware'">
+                    <div class="gallery-caption">Perbaikan Komponen & Solder</div>
+                </div>
+            </div>
+        </section>
+
         <footer>
             <p>&copy; 2026 Ananda Rizky Salafi. Hosted via GitHub Pages & Termux.</p>
         </footer>
     </div>
 
-    <!-- SCRIPT JAVASCRIPT -->
+    <!-- TOMBOL WHATSAPP MELAYANG -->
+    <a href="https://wa.me/6285859120286?text=Halo%20Ananda,%20saya%20ingin%20tanya%20layanan%20service/perakitan" class="wa-float" target="_blank" aria-label="Chat WhatsApp">
+        💬
+    </a>
+
     <script>
-        // 1. Fitur Animasi Mengetik Teks Otomatis
         const texts = [
             "Computer Engineer",
             "Hardware Specialist",
@@ -310,15 +378,14 @@
             if (letter.length === currentText.length) {
                 count++;
                 index = 0;
-                setTimeout(type, 2000); // Tahan teks selama 2 detik sebelum ganti
+                setTimeout(type, 2000);
             } else {
-                setTimeout(type, 100);  // Kecepatan mengetik
+                setTimeout(type, 100);
             }
         }
 
         type();
 
-        // 2. Fitur Ganti Mode Gelap / Terang (Dark/Light Mode)
         const themeBtn = document.getElementById("themeBtn");
         themeBtn.addEventListener("click", () => {
             document.body.classList.toggle("light-mode");
@@ -331,6 +398,3 @@
     </script>
 </body>
 </html>
-
-
-            
