@@ -10,7 +10,7 @@
     <meta name="keywords" content="Ananda Rizky Salafi, Computer Engineer, Service HP, Hardware Specialist, PC Building, Termux, Portofolio">
     <meta name="author" content="Ananda Rizky Salafi">
 
-    <!-- Meta Tag Open Graph (Preview Link Sosmed / WhatsApp) -->
+    <!-- Meta Tag Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ananda Rizky Salafi - Service HP & Custom PC">
     <meta property="og:description" content="Spesialis Computer Engineering, Service HP, Hardware Troubleshooting, dan Perakitan PC Desktop. Hubungi untuk konsultasi gratis.">
@@ -50,7 +50,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         body {
@@ -109,7 +109,7 @@
             height: 3px;
             background-color: var(--accent-cyan);
             border-radius: 2px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .dropdown-menu {
@@ -126,11 +126,15 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             z-index: 15;
             min-width: 200px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .dropdown-menu.active {
             display: flex;
-            animation: fadeIn 0.3s ease;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .menu-btn {
@@ -143,12 +147,21 @@
             text-align: left;
             font-weight: 500;
             font-size: 0.9rem;
-            transition: background 0.2s ease;
+            transition: all 0.2s ease;
         }
 
-        .menu-btn:hover, .menu-btn.active {
+        .menu-btn:hover {
+            background-color: rgba(37, 99, 235, 0.2);
+            color: var(--accent-cyan);
+        }
+
+        .menu-btn.active {
             background-color: var(--accent-blue);
             color: #ffffff;
+        }
+
+        .menu-btn:active {
+            transform: scale(0.97);
         }
 
         /* --- STATUS BADGE --- */
@@ -181,18 +194,18 @@
             100% { transform: scale(0.95); opacity: 0.8; }
         }
 
+        /* --- TRANSISI TAB HALUS --- */
         .tab-content {
             display: none;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .tab-content.active {
             display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+            opacity: 1;
+            transform: translateY(0);
         }
 
         header {
@@ -266,6 +279,11 @@
             padding: 18px;
             border-radius: 8px;
             border-left: 4px solid var(--accent-blue);
+            transition: transform 0.2s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-2px);
         }
 
         .skill-card h3 {
@@ -319,7 +337,7 @@
             overflow: hidden;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.25s ease, border-color 0.25s ease;
         }
 
         .gallery-card:hover {
@@ -356,11 +374,13 @@
             justify-content: center;
             flex-direction: column;
             padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .lightbox-modal.active {
             display: flex;
-            animation: fadeIn 0.3s ease;
+            opacity: 1;
         }
 
         .lightbox-content {
@@ -450,11 +470,15 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: background 0.2s ease;
+            transition: background 0.2s ease, transform 0.1s ease;
         }
 
         .submit-btn:hover {
             background-color: #1eb857;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
         }
 
         /* --- SOSIAL MEDIA & KONTAK GRID --- */
@@ -483,7 +507,6 @@
             border-color: var(--accent-cyan);
         }
 
-        /* STYLE IKON SVG SOSMED */
         .svg-icon {
             width: 28px;
             height: 28px;
@@ -532,7 +555,7 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+            transition: max-height 0.35s ease, padding 0.35s ease;
             background-color: var(--bg-card);
             padding: 0 16px;
         }
@@ -887,16 +910,35 @@
             dropdownMenu.classList.toggle('active');
         });
 
-        // FUNGSI PILIH TAB DARI MENU
+        // FUNGSI PILIH TAB DENGAN TRANSISI MUKADIMAH
         function selectTab(tabId, element) {
             const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-
             const buttons = document.querySelectorAll('.menu-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
 
-            document.getElementById(tabId).classList.add('active');
+            buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
+
+            // Fade out tab aktif saat ini
+            contents.forEach(content => {
+                if (content.classList.contains('active')) {
+                    content.style.opacity = '0';
+                    content.style.transform = 'translateY(15px)';
+                    
+                    setTimeout(() => {
+                        content.classList.remove('active');
+                        
+                        // Menampilkan tab baru
+                        const targetTab = document.getElementById(tabId);
+                        targetTab.classList.add('active');
+                        
+                        // Delay kecil agar animasi CSS terbaca browser
+                        setTimeout(() => {
+                            targetTab.style.opacity = '1';
+                            targetTab.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, 200);
+                }
+            });
 
             dropdownMenu.classList.remove('active');
         }
