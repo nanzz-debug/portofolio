@@ -164,7 +164,16 @@
             transform: scale(0.97);
         }
 
-        /* --- STATUS BADGE --- */
+        /* --- STATUS BADGE & TOMBOL CETAK --- */
+        .header-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -176,7 +185,6 @@
             border-radius: 20px;
             font-size: 0.78rem;
             font-weight: 600;
-            margin-bottom: 15px;
         }
 
         .status-dot {
@@ -186,6 +194,26 @@
             border-radius: 50%;
             box-shadow: 0 0 8px #22c55e;
             animation: pulse 1.5s infinite;
+        }
+
+        .print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--bg-main);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .print-btn:hover {
+            background-color: var(--accent-cyan);
+            color: var(--bg-main);
         }
 
         @keyframes pulse {
@@ -620,6 +648,46 @@
             color: var(--text-secondary);
             font-size: 0.85rem;
         }
+
+        /* --- CSS KHUSUS UNTUK UNTUK CETAK PDF (PRINT MODE) --- */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+            }
+
+            .container {
+                box-shadow: none !important;
+                border: none !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                background-color: transparent !important;
+            }
+
+            .top-bar, .wa-float, .print-btn, .status-badge, .lightbox-modal, .order-form, .faq-item {
+                display: none !important;
+            }
+
+            .tab-content {
+                display: block !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            h1, h2, h3, p, span {
+                color: #000000 !important;
+            }
+
+            .skill-card, .project-item, .contact-card {
+                border: 1px solid #cccccc !important;
+                background-color: #f9f9f9 !important;
+            }
+
+            .svg-icon {
+                fill: #000000 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -647,9 +715,16 @@
             <header>
                 <img src="foto.jpg" alt="Foto Profil Ananda Rizky Salafi" class="profile-img">
                 
-                <div class="status-badge">
-                    <span class="status-dot"></span>
-                    <span>Siap Menerima Service HP & Rakit PC</span>
+                <div class="header-actions">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span>Siap Menerima Service HP & Rakit PC</span>
+                    </div>
+
+                    <!-- TOMBOL CETAK CV PDF -->
+                    <button class="print-btn" onclick="downloadCV()">
+                        📄 Unduh / Cetak CV
+                    </button>
                 </div>
 
                 <h1>ANANDA RIZKY SALAFI</h1>
@@ -834,7 +909,6 @@
             <section>
                 <h2>Media Sosial & Alamat</h2>
                 <div class="contact-grid">
-                    <!-- WHATSAPP SVG ICON -->
                     <a href="https://wa.me/6285859120286?text=Halo%20Ananda,%20saya%20ingin%20tanya%20layanan%20service/perakitan" target="_blank" class="contact-card">
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                         <div class="contact-info">
@@ -843,7 +917,6 @@
                         </div>
                     </a>
 
-                    <!-- INSTAGRAM SVG ICON -->
                     <a href="https://instagram.com/anandarizky.13" target="_blank" class="contact-card">
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         <div class="contact-info">
@@ -852,7 +925,6 @@
                         </div>
                     </a>
 
-                    <!-- TIKTOK SVG ICON -->
                     <a href="https://tiktok.com/@_nanzzaj13" target="_blank" class="contact-card">
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
                         <div class="contact-info">
@@ -861,7 +933,6 @@
                         </div>
                     </a>
 
-                    <!-- GITHUB SVG ICON -->
                     <a href="https://github.com/nanzz-debug" target="_blank" class="contact-card">
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                         <div class="contact-info">
@@ -870,7 +941,6 @@
                         </div>
                     </a>
 
-                    <!-- LOKASI SVG ICON -->
                     <div class="contact-card">
                         <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-7.6 3.402-7.6 7.602 0 4.993 7.03 15.787 7.33 16.242.08.12.215.191.36.191.144 0 .28-.071.36-.191.3-.455 7.33-11.249 7.33-16.242 0-4.2-3.402-7.602-7.6-7.602zm0 11c-1.877 0-3.4-1.523-3.4-3.4s1.523-3.4 3.4-3.4 3.4 1.523 3.4 3.4-1.523 3.4-3.4 3.4z"/></svg>
                         <div class="contact-info">
@@ -902,6 +972,11 @@
     </a>
 
     <script>
+        // FUNGSI UNDUH / CETAK CV KE PDF
+        function downloadCV() {
+            window.print();
+        }
+
         // TOGGLE MENU GARIS TIGA
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const dropdownMenu = document.getElementById('dropdownMenu');
@@ -910,7 +985,7 @@
             dropdownMenu.classList.toggle('active');
         });
 
-        // FUNGSI PILIH TAB DENGAN TRANSISI MUKADIMAH
+        // FUNGSI PILIH TAB DENGAN TRANSISI
         function selectTab(tabId, element) {
             const contents = document.querySelectorAll('.tab-content');
             const buttons = document.querySelectorAll('.menu-btn');
@@ -918,7 +993,6 @@
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
 
-            // Fade out tab aktif saat ini
             contents.forEach(content => {
                 if (content.classList.contains('active')) {
                     content.style.opacity = '0';
@@ -927,11 +1001,9 @@
                     setTimeout(() => {
                         content.classList.remove('active');
                         
-                        // Menampilkan tab baru
                         const targetTab = document.getElementById(tabId);
                         targetTab.classList.add('active');
                         
-                        // Delay kecil agar animasi CSS terbaca browser
                         setTimeout(() => {
                             targetTab.style.opacity = '1';
                             targetTab.style.transform = 'translateY(0)';
