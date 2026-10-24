@@ -10,6 +10,7 @@
     <meta name="keywords" content="Ananda Rizky Salafi, Computer Engineer, Service HP, Hardware Specialist, PC Building, Termux, Portofolio">
     <meta name="author" content="Ananda Rizky Salafi">
     <meta name="google-site-verification" content="sw_Kg0Q2NvCuZwN42L9oNtaVoCYjOimIp1p_iZAg4vw" />
+    
     <!-- Meta Tag Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ananda Rizky Salafi - Service HP & Custom PC">
@@ -23,6 +24,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
@@ -89,6 +93,9 @@
             cursor: pointer;
             font-size: 0.8rem;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .hamburger {
@@ -148,6 +155,9 @@
             font-weight: 500;
             font-size: 0.9rem;
             transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .menu-btn:hover {
@@ -580,6 +590,12 @@
             color: var(--accent-cyan);
         }
 
+        .faq-question-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .faq-answer {
             max-height: 0;
             overflow: hidden;
@@ -649,7 +665,390 @@
             font-size: 0.85rem;
         }
 
-        /* --- CSS KHUSUS UNTUK UNTUK CETAK PDF (PRINT MODE) --- */
+        /* --- CSS KHUSUS UNTUK CETAK PDF (PRINT MODE) --- */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+            }
+
+            .container {
+                box-shadow: none !important;
+                border: none !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                background-color: transparent !important;
+            }
+
+            .top-bar, .wa-float, .print-btn, .status-badge, .lightbox-modal, .order-form, .faq-item {
+                display: none !important;
+            }
+
+            .tab-content {
+                display: block !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            h1, h2, h3, p, span {
+                color: #000000 !important;
+            }
+
+            .skill-card {
+            background-color: var(--bg-main);
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-blue);
+            transition: transform 0.2s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .skill-card h3 {
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-card);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-blue);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-item {
+            background-color: var(--bg-main);
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-item h3 {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        /* --- GALERI FOTO INTERAKTIF --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .gallery-card {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-cyan);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .gallery-caption {
+            padding: 10px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* LIGHTBOX MODAL */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-caption {
+            color: #ffffff;
+            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0,0,0,0.4);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- FORM PEMESANAN SERVICE --- */
+        .order-form {
+            background-color: var(--bg-main);
+            padding: 22px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            margin-top: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #25d366;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #1eb857;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* --- SOSIAL MEDIA & KONTAK GRID --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .contact-card {
+            background-color: var(--bg-main);
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-cyan);
+        }
+
+        .svg-icon {
+            width: 28px;
+            height: 28px;
+            fill: var(--accent-cyan);
+            flex-shrink: 0;
+        }
+
+        .contact-info h3 {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .contact-info p {
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+        }
+
+        /* --- FAQ SECTION ACCORDION --- */
+        .faq-item {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 16px;
+            text-align: left;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-cyan);
+        }
+
+        .faq-question-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            background-color: var(--bg-card);
+            padding: 0 16px;
+        }
+
+        .faq-answer p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 14px 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* --- TOMBOL WA MELAYANG --- */
+        .wa-float {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #ffffff;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .wa-float svg {
+            width: 32px;
+            height: 32px;
+            fill: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 45px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* --- CSS KHUSUS UNTUK CETAK PDF (PRINT MODE) --- */
         @media print {
             body {
                 background-color: #ffffff !important;
@@ -689,13 +1088,13 @@
             }
         }
     </style>
-</head>
+    </head>
 <body>
 
     <div class="container">
         <!-- TOP BAR -->
         <div class="top-bar">
-            <button class="theme-toggle" id="themeBtn">🌙 Mode Terang</button>
+            <button class="theme-toggle" id="themeBtn"><i class="fa-solid fa-moon"></i> Mode Terang</button>
             
             <button class="hamburger" id="hamburgerBtn" aria-label="Menu Navigasi">
                 <span></span>
@@ -704,9 +1103,9 @@
             </button>
 
             <div class="dropdown-menu" id="dropdownMenu">
-                <button class="menu-btn active" onclick="selectTab('profileTab', this)">👤 Profil Saya</button>
-                <button class="menu-btn" onclick="selectTab('skillsTab', this)">🛠️ Keahlian & Layanan</button>
-                <button class="menu-btn" onclick="selectTab('contactTab', this)">🌐 Kontak & Order</button>
+                <button class="menu-btn active" onclick="selectTab('profileTab', this)"><i class="fa-solid fa-user"></i> Profil Saya</button>
+                <button class="menu-btn" onclick="selectTab('skillsTab', this)"><i class="fa-solid fa-wrench"></i> Keahlian & Layanan</button>
+                <button class="menu-btn" onclick="selectTab('contactTab', this)"><i class="fa-solid fa-globe"></i> Kontak & Order</button>
             </div>
         </div>
 
@@ -723,7 +1122,7 @@
 
                     <!-- TOMBOL CETAK CV PDF -->
                     <button class="print-btn" onclick="downloadCV()">
-                        📄 Unduh / Cetak CV
+                        <i class="fa-solid fa-file-pdf"></i> Unduh / Cetak CV
                     </button>
                 </div>
 
@@ -740,7 +1139,7 @@
 
             <section>
                 <h2>Galeri Hasil Kerja</h2>
-                <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--accent-cyan);">💡 Klik gambar untuk memperbesar detail hasil pengerjaan:</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--accent-cyan);"><i class="fa-solid fa-lightbulb"></i> Klik gambar untuk memperbesar detail hasil pengerjaan:</p>
                 <div class="gallery-grid">
                     <div class="gallery-card" onclick="openLightbox('galeri1.jpg', 'Penggantian LCD & Baterai HP')">
                         <img src="galeri1.jpg" alt="Servis HP" class="gallery-img" onerror="this.src='https://via.placeholder.com/300x200?text=Servis+HP'">
@@ -748,7 +1147,8 @@
                     </div>
                     <div class="gallery-card" onclick="openLightbox('galeri2.jpg', 'Perakitan Custom PC Desktop')">
                         <img src="galeri2.jpg" alt="Rakit PC" class="gallery-img" onerror="this.src='https://via.placeholder.com/300x200?text=Rakit+PC'">
-                        <div class="gallery-caption">Perakitan Custom PC Desktop</div>                    <div class="gallery-card" onclick="openLightbox('galeri3.jpg', 'Perbaikan Komponen & Solder Hardware')">
+                        <div class="gallery-caption">Perakitan Custom PC Desktop</div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -823,8 +1223,8 @@
                 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>⏱️ Berapa lama estimasi pengerjaan service HP / LCD?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-question-text"><i class="fa-solid fa-clock"></i> Berapa lama estimasi pengerjaan service HP / LCD?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
                     </button>
                     <div class="faq-answer">
                         <p>Untuk pengerjaan ganti LCD atau baterai umumnya membutuhkan waktu 1-3 jam (bisa ditunggu tergantung ketersediaan stok sparepart). Untuk kerusakan mesin/solder, butuh waktu 1-3 hari kerja untuk diagnosa mendalam.</p>
@@ -833,8 +1233,8 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>💻 Bisakah konsultasi rakit PC sesuai budget?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-question-text"><i class="fa-solid fa-laptop"></i> Bisakah konsultasi rakit PC sesuai budget?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
                     </button>
                     <div class="faq-answer">
                         <p>Sangat bisa! Saya siap membantu merekomendasikan racikan komponen PC terbaik (Gaming, Editing, atau Kantor) yang paling optimal sesuai budget yang Anda miliki secara gratis.</p>
@@ -843,8 +1243,8 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>🛡️ Apakah ada garansi untuk perbaikan hardware?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-question-text"><i class="fa-solid fa-shield-halved"></i> Apakah ada garansi untuk perbaikan hardware?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
                     </button>
                     <div class="faq-answer">
                         <p>Ya, setiap pengerjaan penggantian sparepart asli (LCD, baterai, komponen PC) mendapatkan garansi personal service sesuai kesepakatan bersama demi kenyamanan Anda.</p>
@@ -853,8 +1253,8 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>📲 Bagaimana cara melakukan reservasi / tanya-tanya?</span>
-                        <span class="faq-icon">▼</span>
+                        <span class="faq-question-text"><i class="fa-solid fa-mobile-screen"></i> Bagaimana cara melakukan reservasi / tanya-tanya?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
                     </button>
                     <div class="faq-answer">
                         <p>Anda bisa langsung mengisi Form Pemesanan Jasa di tab Kontak atau menekan tombol WhatsApp di pojok kanan bawah.</p>
@@ -896,7 +1296,7 @@
                     </div>
 
                     <button type="submit" class="submit-btn">
-                        📲 Kirim Pesan via WhatsApp
+                        <i class="fa-brands fa-whatsapp"></i> Kirim Pesan via WhatsApp
                     </button>
                 </form>
             </section>
@@ -1093,9 +1493,9 @@
         themeBtn.addEventListener("click", () => {
             document.body.classList.toggle("light-mode");
             if (document.body.classList.contains("light-mode")) {
-                themeBtn.textContent = "☀️ Mode Gelap";
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i> Mode Gelap';
             } else {
-                themeBtn.textContent = "🌙 Mode Terang";
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i> Mode Terang';
             }
         });
     </script>
